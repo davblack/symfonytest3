@@ -10,10 +10,10 @@ class QuestionController extends AbstractController
 
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
     public function homepage(){
-        return new Response('controller');
+        return $this->render('question/homepage.html.twig');
     }
 
     /**
@@ -26,6 +26,8 @@ class QuestionController extends AbstractController
             'answer 2',
             'answer 3',
             ];
+
+        dump($slug, $this);
         return $this->render('question/show.html.twig',[
 
             'question' =>ucwords(str_replace('-', ' ', $slug)),
